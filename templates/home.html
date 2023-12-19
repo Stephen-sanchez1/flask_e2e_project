@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Tracker</title>
+</head>
+<body>
+    <h1>Welcome to the Diabetes Tracker!</h1>
+    <h2>Blood Sugar Readings</h2>
+    <ul>
+        {% for reading in readings %}
+            <li>{{ reading.value }} mg/dL - {{ reading.timestamp }}</li>
+        {% endfor %}
+    </ul>
+    <form action="/add_reading" method="post">
+        <label for="value">Blood Sugar Reading (mg/dL):</label>
+        <input type="number" name="value" required>
+        <button type="submit">Add Reading</button>
+    </form>
+</body>
+</html>
