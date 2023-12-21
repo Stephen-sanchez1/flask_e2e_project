@@ -1,3 +1,76 @@
+# Diabetic Patient Registry
+
+## Overview
+The Diabetic Patient Registry is a web application designed to manage healthcare data for diabetic patients. This platform offers comprehensive data management features, including patient information, blood sugar level tracking, and appointment history. Users can log in using Google OAuth for secure access.
+
+## Template of .Env File
+
+```
+DB_URL = 
+DB_HOST =
+DB_DATABASE =
+DB_USERNAME = 
+DB_PASSWORD = 
+DB_PORT = 
+DB_CHARSET = 
+
+GOOGLE_CLIENT_ID = 
+GOOGLE_CLIENT_SECRET = 
+
+
+## Docker Setup
+
+## Prerequisites
+- Make sure you have Docker installed on your system.
+
+## Build Docker Image
+To containerize your Flask application, follow these steps:
+
+1. Navigate to your project directory.
+2. Create a `Dockerfile` with the following content:
+
+   ```dockerfile
+   # Use the official Python runtime as a parent image
+   FROM python:3.9-slim
+
+   # Set the working directory to /app
+   WORKDIR /app
+
+   # Copy the current directory contents into the container at /app
+   COPY . /app
+
+   # Install any needed packages specified in requirements.txt
+   RUN pip install -r requirements.txt
+
+   # Make port 80 available to the world outside this container
+   EXPOSE 80
+
+   # Define environment variable
+   ENV NAME World
+
+   # Run app.py when the container launches
+   CMD ["python", "app.py"]
+
+3. Terminal
+    # docker build -t my-flask-app .
+    # docker run -p 4000:80 my-flask-app
+    # docker images
+    # docker ps 
+    
+
+
+
+
+
+
+
+1. Clone the repo.
+2. Create a virtual environment.
+3. Install the requirements.
+4. Create a .env file and add the variables. The template is provided later.
+5. `cd` into the app folder and run the app using `docker build -t <image> .` and `docker run -p 5000:5000 <image>`.
+6. Nagivate to port 5000 and view the app.
+
 # Final Assignment (Product / Web Service)
 
 ## Technologies (approaches) that will be used for final assignment:  
