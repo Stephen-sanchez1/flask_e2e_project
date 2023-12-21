@@ -69,7 +69,7 @@ def google():
                 'scope': 'openid email profile'
             }
         )
-        redirect_uri = 'https://5000-cs-719093013193-default.cs-us-east1-pkhd.cloudshell.dev/google/auth/'
+        redirect_uri = 'https://5000-cs-1039880232296-default.cs-us-east1-pkhd.cloudshell.dev/google/auth/'
         return oauth.google.authorize_redirect(redirect_uri, nonce=session['nonce'])
     except Exception as e:
         logging.error(f"An error has occurred generating a Google session: {e}")
