@@ -6,6 +6,8 @@ from authlib.common.security import generate_token
 from db_functions import update_or_create_user, get_db
 import logging
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, inspect, text
+import sentry_sdk
 
 load_dotenv()
 
