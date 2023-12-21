@@ -5,6 +5,7 @@ from authlib.integrations.flask_client import OAuth
 from authlib.common.security import generate_token
 from db_functions import update_or_create_user, get_db
 import logging
+from sentry_sdk.integrations.flask import FlaskIntegration
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine, inspect, text
 import sentry_sdk
