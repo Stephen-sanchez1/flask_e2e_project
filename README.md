@@ -16,7 +16,7 @@ DB_CHARSET =
 
 GOOGLE_CLIENT_ID = 
 GOOGLE_CLIENT_SECRET = 
-
+```
 
 ## Docker Setup
 
