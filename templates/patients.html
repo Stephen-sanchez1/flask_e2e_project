@@ -2,52 +2,46 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="static\styles.css">
+    <link rel="stylesheet" href="/static/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title> Patient Registry</title>
+    <title>Diabetic Patient Registry</title>
 </head>
 
-<body>
-    <header class="bg-blue-500 p-4">
-        <h1 class="text-white text-3xl font-bold font-mono"> Diabetic Patient Registry </h1>
-        <h1 class="text-white text-right font-mono"> Welcome, {{user.name}} </h1>
-        <h2 class="text-black text-right font-mono">
-            <a href="/info" class="logout-btn" style="text-decoration:none;">
-                <div class="btn-text">
-                    User Info
-                </div>
-            </a>
-        </h2>
-        <h2 class="text-black text-right font-mono">
-            <a href="/logout" class="logout-btn" style="text-decoration:none;">
-                <div class="btn-text">
-                    Logout
-                </div>
-            </a>
-        </h2>
+<body class="bg-gray-100">
+    <header class="bg-blue-500 p-4 text-white">
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-bold font-mono">Diabetic Patient Registry</h1>
+            <div>
+                <span>Welcome, {{ user.name }}</span>
+                <a href="/info" class="text-black ml-4 hover:text-white">User Info</a>
+                <a href="/logout" class="text-black ml-4 hover:text-white">Logout</a>
+            </div>
+        </div>
     </header>
-    <table>
-        <thead>
-            <tr>
-               <th> patient_id </th>
-               <th> first_name </th>
-               <th> last_name </th> 
-               <th> date_of_birth </th>
-               <th> blood_sugar_level </th>
-               <th> last_checkup_date </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for patient in data1 %}
-            <tr>
-                <td> {{patient.patient_id}} </td>
-                <td> {{patient.first_name}}</td>
-                <td> {{patient.last_name}}</td>
-                <td> {{patient.blood_sugar_level}}</td>
-                <td> {{patient.last_checkup_date}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+
+    <main class="p-4">
+        <table class="min-w-full table-auto">
+            <thead class="bg-blue-200">
+                <tr>
+                    <th class="px-4 py-2">Patient ID</th>
+                    <th class="px-4 py-2">First Name</th>
+                    <th class="px-4 py-2">Last Name</th>
+                    <th class="px-4 py-2">Blood Sugar Level</th>
+                    <th class="px-4 py-2">Last Checkup Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for patient in data1 %}
+                <tr class="bg-white border-b">
+                    <td class="px-4 py-2">{{ patient.patient_id }}</td>
+                    <td class="px-4 py-2">{{ patient.first_name }}</td>
+                    <td class="px-4 py-2">{{ patient.last_name }}</td>
+                    <td class="px-4 py-2">{{ patient.blood_sugar_level }}</td>
+                    <td class="px-4 py-2">{{ patient.last_checkup_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
