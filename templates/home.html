@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diabetes Tracker</title>
+    <title>Diabetic Patient Registry</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/static/styles.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Welcome to the Diabetes Tracker!</h1>
-    <h2>Blood Sugar Readings</h2>
-    <ul>
-        {% for reading in readings %}
-            <li>{{ reading.value }} mg/dL - {{ reading.timestamp }}</li>
-        {% endfor %}
-    </ul>
-    <form action="/add_reading" method="post">
-        <label for="value">Blood Sugar Reading (mg/dL):</label>
-        <input type="number" name="value" required>
-        <button type="submit">Add Reading</button>
-    </form>
+clear
+<body class="bg-white">
+    <!-- Header and navigation section -->
+    <!-- ... (header content) ... -->
+
+    <main class="p-4">
+        {% block content %}
+        <!-- Main content section -->
+        <!-- ... (content) ... -->
+        {% endblock %}
+    </main>
+
+    <footer class="bg-blue-400 text-white p-4 mt-6">
+        <p>© 2023 Diabetic Patient Registry. All Rights Reserved.</p>
+    </footer>
 </body>
+
 </html>

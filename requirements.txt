@@ -1,0 +1,9 @@
+sqlalchemy
+python-dotenv
+Flask
+authlib
+faker
+requests
+pymysql
+pandas
+gunicorn
