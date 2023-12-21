@@ -64,13 +64,6 @@ To containerize your Flask application, follow these steps:
 
 
 
-1. Clone the repo.
-2. Create a virtual environment.
-3. Install the requirements.
-4. Create a .env file and add the variables. The template is provided later.
-5. `cd` into the app folder and run the app using `docker build -t <image> .` and `docker run -p 5000:5000 <image>`.
-6. Nagivate to port 5000 and view the app.
-
 # Final Assignment (Product / Web Service)
 
 ## Technologies (approaches) that will be used for final assignment:  
