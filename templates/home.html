@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diabetic Patient Registry</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="/static/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <title> Diabetic Patient Registry </title>
 </head>
-clear
-<body class="bg-white">
-    <!-- Header and navigation section -->
-    <!-- ... (header content) ... -->
 
-    <main class="p-4">
-        {% block content %}
-        <!-- Main content section -->
-        <!-- ... (content) ... -->
-        {% endblock %}
-    </main>
-
-    <footer class="bg-blue-400 text-white p-4 mt-6">
-        <p>© 2023 Diabetic Patient Registry. All Rights Reserved.</p>
-    </footer>
+<body>
+    <h1> Diabetic Patient Registry Login : </h1>
+    <div>
+        <a href="google/" class="login-btn" style="text-decoration:none;">
+            <img id="google" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/180px-Google_Chrome_icon_%28February_2022%29.svg.png"
+                style="width:50px;height:50px;">
+            <div class="btn-text">
+                Login with Google
+            </div>
+        </a>
+    </div>
 </body>
-
 </html>
