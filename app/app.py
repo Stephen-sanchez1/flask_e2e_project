@@ -11,10 +11,13 @@ load_dotenv()
 
 GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
 GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
-DB_USERNAME = 'stephen'
-DB_PASSWORD = 'Happy123'
-DB_HOST = '34.121.233.235'
-DB_DATABASE = 'diabetic_patient_registry'
+DB_HOST = os.getenv("DB_HOST")
+DB_DATABASE = os.getenv("DB_DATABASE")
+DB_USERNAME = os.getenv("DB_USERNAME")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+
+connect_args = {'ssl': {'fake_flag_to_enable_tls': True}}
+connection_string = f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_DATABASE}'
 
 app = Flask(__name__)
 
