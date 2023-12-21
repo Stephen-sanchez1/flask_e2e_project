@@ -4,6 +4,8 @@ Flask
 authlib
 faker
 requests
+flask_sqlalchemy
+sentry-sdk
 pymysql
 pandas
 gunicorn
