@@ -5,7 +5,7 @@ from faker import Faker
 import random
 
 # Database connection
-engine = create_engine(f"mysql+pymysql://stephen:Happy123@34.121.233.235/diabetic_patient_registry")
+engine = create_engine(f"mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_DATABASE}")
 
 
 # Initialize Faker
