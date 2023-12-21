@@ -15,15 +15,33 @@ DB_HOST = os.getenv("DB_HOST")
 DB_DATABASE = os.getenv("DB_DATABASE")
 DB_USERNAME = os.getenv("DB_USERNAME")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_PORT = int(os.getenv("DB_PORT", 3306))
+DB_CHARSET = os.getenv("DB_CHARSET", "utf8mb4")
 
 connect_args = {'ssl': {'fake_flag_to_enable_tls': True}}
 connection_string = f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_DATABASE}'
+engine = create_engine(
+        connection_string,
+        connect_args=connect_args)
 
 app = Flask(__name__)
 
 app.secret_key = os.urandom(12)
 oauth = OAuth(app)
 get_db()
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    filename="logs/app.log",
+    filemode="w",
+    format='%(levelname)s - %(name)s - %(message)s'
+)
+
+sentry_sdk.init(
+    dsn=os.getenv("SENTRY_DSN"),
+    integrations=[FlaskIntegration()],
+    traces_sample_rate=1.0,
+    profiles_sample_rate=1.0 
 
 @app.route('/')
 def index():
