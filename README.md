@@ -52,17 +52,32 @@ To containerize your Flask application, follow these steps:
    CMD ["python", "app.py"]
 
 3. Terminal
-    # docker build -t my-flask-app .
-    # docker run -p 4000:80 my-flask-app
-    # docker images
-    # docker ps 
-    
+    - docker build -t my-flask-app .
+    - docker run -p 4000:80 my-flask-app
+    - docker images
+    - docker ps
 
+## Bypassing Google Authentication for Patients route
 
+Due to some issues encountered, I adjusted the `/patients` route in my Flask application to bypass the authentication process. This modification was performed directly within my Google Shell Cloud environment to show my patients.html. Below is the code snippet for the adjusted `/patients` route I used to show 'registry' :
 
+```python
+@app.route('/patients')
+def patients():
+    try:
+        logging.debug("Accessing patient directory")
+        with engine.connect() as connection:
+            query = text('SELECT * FROM diabetic_patient_info')
+            result = connection.execute(query)
+            table_data = result.fetchall()
+        
+        # This defaults to name '' when there is no user 
+        user = session.get('user', {'name': ''})  
 
-
-
+        return render_template('patients.html', data=table_data, user=user)
+    except Exception as e:
+        logging.error(f"Error accessing patient data: {e}")
+        return f"An error occurred: {e}"
 
 # Final Assignment (Product / Web Service)
 
